@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Main from "./pages/Main";
+import Achievements from "./pages/Achievements";
+import Game from "./pages/Game";
+import Header from "./mainComponents/Header";
 function App() {
+  console.log(useLocation().pathname);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      {useLocation().pathname !== "/" ? (
+        <Header backStatus={true} />
+      ) : (
+        <Header backStatus={false} />
+      )}
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/achievements" element={<Achievements />} />
+        <Route path="/game" element={<Game />} />
+      </Routes>
     </div>
   );
 }

@@ -1,0 +1,22 @@
+.main {
+  position: relative;
+  margin: 0 auto;
+  padding: 5px;
+  display: flex;
+  max-width: 600px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+.leftArrow {
+  display: flex;
+  align-items: center;
+}
+.leftArrow > img {
+  width: 30px;
+  height: 30px;
+}
+.settingsImg {
+  width: 30px;
+  height: 30px;
+}
