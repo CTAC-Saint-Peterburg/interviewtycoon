@@ -1,3 +1,10 @@
+import { GameHeader } from "../secondaryСomponents/GameHeader";
+import { Questions } from "../secondaryСomponents/Questions";
 export default function Game() {
-  return <div>Game page</div>;
+  return (
+    <div>
+      <GameHeader />
+      <Questions />
+    </div>
+  );
 }

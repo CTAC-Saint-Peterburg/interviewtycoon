@@ -1,0 +1,23 @@
+.main {
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
+.questions {
+  padding: 5px;
+  border-radius: 12px;
+  background-color: antiquewhite;
+}
+.answers {
+  position: relative;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.answer {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  background-color: antiquewhite;
+}

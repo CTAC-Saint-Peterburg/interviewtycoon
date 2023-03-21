@@ -5,6 +5,9 @@
   max-width: 400px;
   /* background-color: red; */
 }
+.main > a {
+  text-decoration: none;
+}
 .startPoint {
   position: relative;
   margin: 0 auto;

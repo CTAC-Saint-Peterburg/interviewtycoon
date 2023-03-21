@@ -1,0 +1,12 @@
+.main {
+  position: relative;
+  margin: 0 auto;
+  display: grid;
+  height: 115px;
+  justify-items: center;
+}
+.main > h2 {
+  padding: 15px;
+  background-color: antiquewhite;
+  border-radius: 12px;
+}

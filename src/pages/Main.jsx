@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import fingerImg from "../assets/fingerClick.svg";
 import { useSelector } from "react-redux";
 import styles from "./pagesStyleComponents/Main.module.css";
@@ -11,12 +12,18 @@ export default function Main() {
       <Goal />
       <Way />
       <Startpoint />
-      <div className={styles.startButton}>
-        <div>
-          <img className={styles.fingerimg} src={fingerImg} alt="fingerClick" />
+      <Link to="/game">
+        <div className={styles.startButton}>
+          <div>
+            <img
+              className={styles.fingerimg}
+              src={fingerImg}
+              alt="fingerClick"
+            />
+          </div>
+          <div>Start your journey</div>
         </div>
-        <div>Start your journey</div>
-      </div>
+      </Link>
     </div>
   );
 }
