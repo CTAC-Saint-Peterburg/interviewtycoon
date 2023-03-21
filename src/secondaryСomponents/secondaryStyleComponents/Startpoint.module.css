@@ -1,0 +1,20 @@
+.main {
+  position: relative;
+  margin: 0 auto;
+  width: 130px;
+  height: 130px;
+  /* background-color: yellow; */
+}
+.startPointWrapper {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.startPointWrapper > img {
+  width: 70px;
+  height: 70px;
+}
+.startPointWrapper > h2 {
+  text-align: center;
+  font-size: 16px;
+}

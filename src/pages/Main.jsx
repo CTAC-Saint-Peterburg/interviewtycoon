@@ -3,13 +3,14 @@ import { useSelector } from "react-redux";
 import styles from "./pagesStyleComponents/Main.module.css";
 import { Way } from "../secondaryСomponents/Way";
 import { Goal } from "../secondaryСomponents/Goal";
+import { Startpoint } from "../secondaryСomponents/Startpoint";
 export default function Main() {
   const test = useSelector((state) => state.gamestats.data.message);
   return (
     <div className={styles.main}>
       <Goal />
       <Way />
-      <div className={styles.startPoint}>3</div>
+      <Startpoint />
       <div className={styles.startButton}>
         <div>
           <img className={styles.fingerimg} src={fingerImg} alt="fingerClick" />
