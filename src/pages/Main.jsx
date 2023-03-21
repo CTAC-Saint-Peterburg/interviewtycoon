@@ -1,13 +1,21 @@
+import fingerImg from "../assets/fingerClick.svg";
 import { useSelector } from "react-redux";
 import styles from "./pagesStyleComponents/Main.module.css";
+import { Way } from "../secondaryСomponents/Way";
+import { Goal } from "../secondaryСomponents/Goal";
 export default function Main() {
   const test = useSelector((state) => state.gamestats.data.message);
   return (
     <div className={styles.main}>
-      <div className={styles.goal}>1</div>
-      <div className={styles.way}>2</div>
+      <Goal />
+      <Way />
       <div className={styles.startPoint}>3</div>
-      <div>4</div>
+      <div className={styles.startButton}>
+        <div>
+          <img className={styles.fingerimg} src={fingerImg} alt="fingerClick" />
+        </div>
+        <div>Start your journey</div>
+      </div>
     </div>
   );
 }

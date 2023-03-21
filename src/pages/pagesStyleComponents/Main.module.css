@@ -2,22 +2,8 @@
   position: relative;
   margin: 0 auto;
   width: 100%;
-  max-width: 600px;
-  background-color: red;
-}
-.goal {
-  position: relative;
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-}
-.way {
-  position: relative;
-  margin: 0 auto;
-  width: 100px;
-  height: 300px;
-  background-color: green;
+  max-width: 400px;
+  /* background-color: red; */
 }
 .startPoint {
   position: relative;
@@ -25,4 +11,16 @@
   width: 100px;
   height: 100px;
   background-color: yellow;
+}
+.startButton {
+  position: relative;
+  display: flex;
+  height: 60px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.fingerimg {
+  width: 20px;
+  height: 20px;
 }

@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 5px;
   display: flex;
-  max-width: 600px;
+  max-width: 400px;
 
   justify-content: space-between;
   align-items: center;
@@ -19,4 +19,8 @@
 .settingsImg {
   width: 30px;
   height: 30px;
+}
+.startButton {
+  height: 60px;
+  text-align: center;
 }
