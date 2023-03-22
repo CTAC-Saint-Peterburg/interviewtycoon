@@ -24,3 +24,7 @@
   height: 60px;
   text-align: center;
 }
+.achievement > img {
+  width: 30px;
+  height: 30px;
+}

@@ -1,5 +1,6 @@
 import settingsImg from "../assets/settings.svg";
 import leftArrowImg from "../assets/leftarrowImg.svg";
+import achievementImg from "../assets/achievement.svg";
 import styles from "./mainStyleComponents/header.module.css";
 import { Link } from "react-router-dom";
 export default function Header({ backStatus }) {
@@ -12,7 +13,13 @@ export default function Header({ backStatus }) {
             <span>back</span>
           </div>
         </Link>
-      ) : null}
+      ) : (
+        <Link to="/achievements">
+          <div className={styles.achievement}>
+            <img src={achievementImg} alt="achievments" />
+          </div>
+        </Link>
+      )}
       <div className={styles.settingsImg}>
         <img src={settingsImg} alt="settingsImage" />
       </div>

@@ -5,6 +5,7 @@
 }
 .questions {
   padding: 5px;
+  max-width: 340px;
   border-radius: 12px;
   background-color: antiquewhite;
 }
@@ -13,11 +14,17 @@
   margin-top: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 5px;
 }
 .answer {
-  width: 120px;
-  height: 120px;
+  display: flex;
+  width: 130px;
+  height: 130px;
   border-radius: 16px;
   background-color: antiquewhite;
+  justify-content: center;
+  align-items: center;
+}
+.answer > p {
+  margin: 10px 1px 10px 1px;
 }

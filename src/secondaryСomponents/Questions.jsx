@@ -11,10 +11,18 @@ export const Questions = () => {
         </h3>
       </div>
       <div className={styles.answers}>
-        <div className={styles.answer}>1</div>
-        <div className={styles.answer}>2</div>
-        <div className={styles.answer}>3</div>
-        <div className={styles.answer}>4</div>
+        <div className={styles.answer}>
+          <p>1</p>
+        </div>
+        <div className={styles.answer}>
+          <p>2</p>
+        </div>
+        <div className={styles.answer}>
+          <p>3</p>
+        </div>
+        <div className={styles.answer}>
+          <p>4</p>
+        </div>
       </div>
     </div>
   );
