@@ -5,7 +5,6 @@ import Achievements from "./pages/Achievements";
 import Game from "./pages/Game";
 import Header from "./mainComponents/Header";
 function App() {
-  console.log(useLocation().pathname);
   return (
     <div className="main">
       {useLocation().pathname !== "/" ? (

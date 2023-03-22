@@ -28,3 +28,6 @@
 .answer > p {
   margin: 10px 1px 10px 1px;
 }
+.active {
+  background-color: #ffc145;
+}
