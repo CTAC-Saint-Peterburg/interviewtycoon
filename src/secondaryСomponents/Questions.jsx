@@ -7,13 +7,16 @@ export const Questions = ({ data }) => {
     setShaffle(data[currentQuestion].variants.sort(() => Math.random() - 0.5));
   }, []);
   const [choice, setChoice] = useState({ styleIndex: null, myAnswer: null });
+  const [showAnswer, setShowAnswer] = useState(false);
   console.log(data);
 
   function handleClick(choiceIncome, style) {
     if (choice.myAnswer === null) {
       setChoice({ myAnswer: choiceIncome, styleIndex: style });
+      setShowAnswer(true);
     }
   }
+
   return (
     <div className={styles.main}>
       <div className={styles.questions}>
@@ -25,6 +28,10 @@ export const Questions = ({ data }) => {
             key={index}
             className={`${styles.answer} ${
               choice.styleIndex === index ? styles.active : ""
+            } ${
+              showAnswer && answer === data[currentQuestion].answer
+                ? styles.showAnswer
+                : ""
             }`}
             onClick={() => handleClick(answer, index)}
           >

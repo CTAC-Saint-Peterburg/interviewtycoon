@@ -29,5 +29,8 @@
   margin: 10px 1px 10px 1px;
 }
 .active {
+  background-color: red;
+}
+.showAnswer {
   background-color: #ffc145;
 }
