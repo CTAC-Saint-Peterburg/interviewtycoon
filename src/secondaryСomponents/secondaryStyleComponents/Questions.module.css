@@ -34,3 +34,21 @@
 .showAnswer {
   background-color: #ffc145;
 }
+.nextButtonWrapper {
+  position: relative;
+  display: flex;
+  margin-top: 12px;
+  height: 60px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.nextButton {
+  position: relative;
+  border: none;
+  color: antiquewhite;
+  height: 50px;
+  width: 200px;
+  border-radius: 16px;
+  background-color: #728085;
+}

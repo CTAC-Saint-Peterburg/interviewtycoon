@@ -3,9 +3,10 @@ import styles from "./secondaryStyleComponents/Questions.module.css";
 export const Questions = ({ data }) => {
   const [shaffle, setShaffle] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
     setShaffle(data[currentQuestion].variants.sort(() => Math.random() - 0.5));
-  }, []);
+  }, [currentQuestion]);
   const [choice, setChoice] = useState({ styleIndex: null, myAnswer: null });
   const [showAnswer, setShowAnswer] = useState(false);
   console.log(data);
@@ -15,6 +16,16 @@ export const Questions = ({ data }) => {
       setChoice({ myAnswer: choiceIncome, styleIndex: style });
       setShowAnswer(true);
     }
+    setNextButton(true);
+  }
+  function next() {
+    if (data.length > currentQuestion + 1) {
+      setNextButton(false);
+      setShowAnswer(false);
+      setChoice({ myAnswer: null, styleIndex: null });
+      setCurrentQuestion((old) => old + 1);
+      console.log("good");
+    } else console.log("no questions");
   }
 
   return (
@@ -39,6 +50,13 @@ export const Questions = ({ data }) => {
           </div>
         ))}
       </div>
+      {nextButton ? (
+        <div className={styles.nextButtonWrapper}>
+          <button className={styles.nextButton} onClick={next}>
+            next
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };
