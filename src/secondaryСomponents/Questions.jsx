@@ -11,7 +11,9 @@ export const Questions = ({ data }) => {
   console.log(currentQuestion);
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
-    setShaffle(data[currentQuestion].variants);
+    let copy = [...data[currentQuestion].variants];
+    copy = copy.sort(() => 0.5 - Math.random());
+    setShaffle(copy);
   }, [currentQuestion]);
   const [choice, setChoice] = useState({ styleIndex: null, myAnswer: null });
   const [showAnswer, setShowAnswer] = useState(false);
