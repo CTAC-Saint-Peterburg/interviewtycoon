@@ -5,7 +5,7 @@ export const Questions = ({ data }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
-    setShaffle(data[currentQuestion].variants.sort(() => Math.random() - 0.5));
+    setShaffle(data[currentQuestion].variants);
   }, [currentQuestion]);
   const [choice, setChoice] = useState({ styleIndex: null, myAnswer: null });
   const [showAnswer, setShowAnswer] = useState(false);

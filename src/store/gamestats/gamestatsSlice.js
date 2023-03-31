@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import loadedQuestions from "../../assets/questions";
 const gamestatsSlice = createSlice({
   name: "gamestats",
-  initialState: { data: { message: "hey!" } },
+  initialState: { data: { questions: loadedQuestions } },
   reducers: {
-    show: (state) => {
-      state.data.message = "hm...";
-    },
+    show: (state) => {},
   },
 });
 
