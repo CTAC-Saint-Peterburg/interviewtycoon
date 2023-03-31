@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { incrementCurrentQuestion } from "../store/gamestats/gamestatsSlice";
 import styles from "./secondaryStyleComponents/Questions.module.css";
 export const Questions = ({ data }) => {
+  const dispath = useDispatch();
   const [shaffle, setShaffle] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const currentQuestion = useSelector(
+    (state) => state.gamestats.currentQuestion
+  );
+  console.log(currentQuestion);
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
     setShaffle(data[currentQuestion].variants);
@@ -23,7 +29,8 @@ export const Questions = ({ data }) => {
       setNextButton(false);
       setShowAnswer(false);
       setChoice({ myAnswer: null, styleIndex: null });
-      setCurrentQuestion((old) => old + 1);
+
+      dispath(incrementCurrentQuestion(1));
       console.log("good");
     } else console.log("no questions");
   }
