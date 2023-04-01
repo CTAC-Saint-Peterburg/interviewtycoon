@@ -1,15 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import loadedQuestions from "../../assets/questions";
+import questionsData from "../../assets/questions";
 const gamestatsSlice = createSlice({
   name: "gamestats",
   initialState: {
-    data: { questions: loadedQuestions, stage: 0, currectAnswers: 0 },
+    data: {
+      questions: questionsData[0].stage[0],
+      stage: 0,
+      currectAnswers: 0,
+    },
     currentQuestion: 0,
     currentStage: 0,
     mainMenuWayActive: 2,
   },
   reducers: {
     show: (state) => {},
+    setStageQuestions: (state, action) => {
+      state.data.questions =
+        questionsData[action.payload.lvl].stage[action.payload.stage];
+    },
     setWayActive: (state, action) => {
       state.mainMenuWayActive = action.payload;
     },
@@ -27,6 +35,7 @@ const gamestatsSlice = createSlice({
 
 export const {
   show,
+  setStageQuestions,
   incrementCurrentQuestion,
   incrementCurrectAnswers,
   resetCurrectAnswers,
