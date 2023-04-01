@@ -6,9 +6,13 @@ const gamestatsSlice = createSlice({
     data: { questions: loadedQuestions, stage: 0, currectAnswers: 0 },
     currentQuestion: 0,
     currentStage: 0,
+    mainMenuWayActive: 2,
   },
   reducers: {
     show: (state) => {},
+    setWayActive: (state, action) => {
+      state.mainMenuWayActive = action.payload;
+    },
     incrementCurrectAnswers: (state) => {
       state.data.currectAnswers += 1;
     },
@@ -26,5 +30,6 @@ export const {
   incrementCurrentQuestion,
   incrementCurrectAnswers,
   resetCurrectAnswers,
+  setWayActive,
 } = gamestatsSlice.actions;
 export default gamestatsSlice.reducer;
