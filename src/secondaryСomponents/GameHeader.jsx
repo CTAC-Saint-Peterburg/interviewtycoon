@@ -9,7 +9,7 @@ export const GameHeader = ({ data }) => {
       <h2>
         {currentQuestion + 1}/{data.length}
       </h2>
-      <progress value={0}></progress>
+      <progress value={(currentQuestion + 1) / data.length}></progress>
     </div>
   );
 };
