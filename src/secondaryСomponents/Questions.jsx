@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementCurrentQuestion } from "../store/gamestats/gamestatsSlice";
+import { useNavigate } from "react-router-dom";
 import styles from "./secondaryStyleComponents/Questions.module.css";
 export const Questions = ({ data }) => {
+  const go = useNavigate();
   const dispath = useDispatch();
   const [shaffle, setShaffle] = useState([]);
   const currentQuestion = useSelector(
@@ -34,7 +36,7 @@ export const Questions = ({ data }) => {
 
       dispath(incrementCurrentQuestion(1));
       console.log("good");
-    } else console.log("no questions");
+    } else go("/");
   }
 
   return (
