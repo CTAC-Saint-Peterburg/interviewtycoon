@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { incrementCurrentQuestion } from "../store/gamestats/gamestatsSlice";
+import {
+  incrementCurrectAnswers,
+  incrementCurrentQuestion,
+} from "../store/gamestats/gamestatsSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./secondaryStyleComponents/Questions.module.css";
+
 export const Questions = ({ data }) => {
   const go = useNavigate();
   const dispath = useDispatch();
@@ -26,8 +30,12 @@ export const Questions = ({ data }) => {
       setChoice({ myAnswer: choiceIncome, styleIndex: style });
       setShowAnswer(true);
     }
+    if (choiceIncome === data[currentQuestion].answer) {
+      dispath(incrementCurrectAnswers());
+    }
     setNextButton(true);
   }
+
   function next() {
     if (data.length > currentQuestion + 1) {
       setNextButton(false);
@@ -36,7 +44,9 @@ export const Questions = ({ data }) => {
 
       dispath(incrementCurrentQuestion(1));
       console.log("good");
-    } else go("/");
+    } else {
+      go("/");
+    }
   }
 
   return (
