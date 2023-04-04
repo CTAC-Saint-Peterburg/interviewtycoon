@@ -9,7 +9,12 @@ const playerSlice = createSlice({
       { name: "finish first three tests", status: false },
     ],
   },
-  reducers: {},
+  reducers: {
+    updateCompleteTests: (state, action) => {
+      state.completeTests[0].tests[action.payload.test] = action.payload.value;
+      localStorage.setItem("testsData", JSON.stringify(state.completeTests));
+    },
+  },
 });
-export const {} = playerSlice.actions;
+export const { updateCompleteTests } = playerSlice.actions;
 export default playerSlice.reducer;

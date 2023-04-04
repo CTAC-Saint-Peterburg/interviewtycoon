@@ -6,6 +6,7 @@ import {
 } from "../store/gamestats/gamestatsSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./secondaryStyleComponents/Questions.module.css";
+import { updateCompleteTests } from "../store/player/playerSlice";
 
 export const Questions = ({ data }) => {
   const go = useNavigate();
@@ -14,7 +15,10 @@ export const Questions = ({ data }) => {
   const currentQuestion = useSelector(
     (state) => state.gamestats.currentQuestion
   );
-  console.log(currentQuestion);
+  const correctAnswers = useSelector((state) => state.gamestats.currectAnswers);
+  const dataForLocalStorageUpdate = useSelector(
+    (state) => state.player.completeTests
+  );
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
     let copy = [...data[currentQuestion].variants];
@@ -45,6 +49,7 @@ export const Questions = ({ data }) => {
       dispath(incrementCurrentQuestion(1));
       console.log("good");
     } else {
+      dispath(updateCompleteTests({ test: 2, value: correctAnswers }));
       go("/");
     }
   }

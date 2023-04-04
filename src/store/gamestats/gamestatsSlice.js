@@ -6,8 +6,8 @@ const gamestatsSlice = createSlice({
     data: {
       questions: questionsData[0].stage[0],
       stage: 0,
-      currectAnswers: 0,
     },
+    currectAnswers: 0,
     currentQuestion: 0,
     currentStage: 0,
     mainMenuWayActive: 2,
@@ -22,10 +22,10 @@ const gamestatsSlice = createSlice({
       state.mainMenuWayActive = action.payload;
     },
     incrementCurrectAnswers: (state) => {
-      state.data.currectAnswers += 1;
+      state.currectAnswers += 1;
     },
     resetCurrectAnswers: (state) => {
-      state.data.currectAnswers = 0;
+      state.currectAnswers = 0;
     },
     incrementCurrentQuestion: (state, action) => {
       state.currentQuestion += action.payload;
