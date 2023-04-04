@@ -30,6 +30,9 @@ const gamestatsSlice = createSlice({
     incrementCurrentQuestion: (state, action) => {
       state.currentQuestion += action.payload;
     },
+    resetCurrentQuestion: (state) => {
+      state.currentQuestion = 0;
+    },
   },
 });
 
@@ -39,6 +42,7 @@ export const {
   incrementCurrentQuestion,
   incrementCurrectAnswers,
   resetCurrectAnswers,
+  resetCurrentQuestion,
   setWayActive,
 } = gamestatsSlice.actions;
 export default gamestatsSlice.reducer;

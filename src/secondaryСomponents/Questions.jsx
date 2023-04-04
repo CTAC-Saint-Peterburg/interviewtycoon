@@ -25,7 +25,6 @@ export const Questions = ({ data }) => {
   }, [currentQuestion]);
   const [choice, setChoice] = useState({ styleIndex: null, myAnswer: null });
   const [showAnswer, setShowAnswer] = useState(false);
-  console.log(data);
 
   function handleClick(choiceIncome, style) {
     if (choice.myAnswer === null) {
@@ -45,7 +44,6 @@ export const Questions = ({ data }) => {
       setChoice({ myAnswer: null, styleIndex: null });
 
       dispath(incrementCurrentQuestion(1));
-      console.log("good");
     } else {
       dispath(updateCompleteTests({ test: currentWay, value: correctAnswers }));
       go("/");

@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./secondaryStyleComponents/Way.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  resetCurrentQuestion,
   setStageQuestions,
   setWayActive,
 } from "../store/gamestats/gamestatsSlice";
@@ -12,6 +13,7 @@ export const Way = () => {
   const loadSaves = useSelector((state) => state.player.completeTests[0].tests);
 
   function handleClick(index) {
+    dispath(resetCurrentQuestion());
     dispath(setStageQuestions({ lvl: 0, stage: 2 - index }));
     dispath(setWayActive(index));
   }
