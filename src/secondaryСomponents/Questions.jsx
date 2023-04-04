@@ -16,9 +16,6 @@ export const Questions = ({ data }) => {
     (state) => state.gamestats.currentQuestion
   );
   const correctAnswers = useSelector((state) => state.gamestats.currectAnswers);
-  const dataForLocalStorageUpdate = useSelector(
-    (state) => state.player.completeTests
-  );
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
     let copy = [...data[currentQuestion].variants];
