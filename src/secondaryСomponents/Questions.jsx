@@ -31,7 +31,7 @@ export const Questions = ({ data }) => {
       setChoice({ myAnswer: choiceIncome, styleIndex: style });
       setShowAnswer(true);
     }
-    if (choiceIncome === data[currentQuestion].answer) {
+    if (choiceIncome === data[currentQuestion].answer && nextButton === false) {
       dispath(incrementCurrectAnswers());
     }
     setNextButton(true);
