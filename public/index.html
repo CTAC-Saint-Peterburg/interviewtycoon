@@ -24,6 +24,16 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script>
+      //localStorage
+      if (localStorage.getItem("testsData") === null) {
+        localStorage.setItem(
+          "testsData",
+          '[{"name":"junior","tests":[0,0,0]},{"name":"middle","tests":[0,0,0]},{"name":"senior","tests":[0,0,0]}]'
+        );
+      }
+      //
+    </script>
     <title>React App</title>
   </head>
   <body>

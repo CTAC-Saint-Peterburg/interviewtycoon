@@ -16,6 +16,7 @@ export const Questions = ({ data }) => {
     (state) => state.gamestats.currentQuestion
   );
   const correctAnswers = useSelector((state) => state.gamestats.currectAnswers);
+  const currentWay = useSelector((state) => state.gamestats.mainMenuWayActive);
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
     let copy = [...data[currentQuestion].variants];
@@ -46,7 +47,7 @@ export const Questions = ({ data }) => {
       dispath(incrementCurrentQuestion(1));
       console.log("good");
     } else {
-      dispath(updateCompleteTests({ test: 2, value: correctAnswers }));
+      dispath(updateCompleteTests({ test: currentWay, value: correctAnswers }));
       go("/");
     }
   }
