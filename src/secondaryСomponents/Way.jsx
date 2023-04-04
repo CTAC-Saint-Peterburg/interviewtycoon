@@ -8,7 +8,8 @@ import {
 export const Way = () => {
   const dispath = useDispatch();
   const activeWay = useSelector((state) => state.gamestats.mainMenuWayActive);
-  const [blocks, setBlocks] = useState([1, 2, 3]);
+  const [blocks, setBlocks] = useState(["#3", "#2", "#1"]);
+  const loadSaves = useSelector((state) => state.player.completeTests[0].tests);
 
   function handleClick(index) {
     dispath(setStageQuestions({ lvl: 0, stage: 2 - index }));
@@ -24,7 +25,8 @@ export const Way = () => {
           }`}
           onClick={() => handleClick(index)}
         >
-          {block}
+          <span>{block}</span>
+          <p>{loadSaves[index]}</p>
         </div>
       ))}
     </div>
