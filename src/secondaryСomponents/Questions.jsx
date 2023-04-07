@@ -7,7 +7,10 @@ import {
 } from "../store/gamestats/gamestatsSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./secondaryStyleComponents/Questions.module.css";
-import { updateCompleteTests } from "../store/player/playerSlice";
+import {
+  updateCompleteTests,
+  updatelvlScores,
+} from "../store/player/playerSlice";
 
 export const Questions = ({ data }) => {
   const go = useNavigate();
@@ -48,6 +51,7 @@ export const Questions = ({ data }) => {
     } else {
       dispath(updateCompleteTests({ test: currentWay, value: correctAnswers }));
       dispath(resetCurrectAnswers());
+      dispath(updatelvlScores());
       go("/");
     }
   }

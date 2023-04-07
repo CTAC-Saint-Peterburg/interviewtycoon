@@ -10,8 +10,11 @@ import {
 export const Way = () => {
   const dispath = useDispatch();
   const activeWay = useSelector((state) => state.gamestats.mainMenuWayActive);
+  const stage = useSelector((state) => state.gamestats.currentStage);
   const [blocks, setBlocks] = useState(["#3", "#2", "#1"]);
-  const loadSaves = useSelector((state) => state.player.completeTests[0].tests);
+  const loadSaves = useSelector(
+    (state) => state.player.completeTests[stage].tests
+  );
 
   function handleClick(index) {
     dispath(resetCurrentQuestion());
