@@ -1,6 +1,9 @@
 import { useDispatch } from "react-redux";
 import styles from "./pagesStyleComponents/Settings.module.css";
-import { resetCompleteTests } from "../store/player/playerSlice";
+import {
+  resetCompleteTests,
+  updatelvlScores,
+} from "../store/player/playerSlice";
 export default function Settings() {
   const dispath = useDispatch();
   function resetProgress() {
@@ -12,6 +15,7 @@ export default function Settings() {
       );
     }
     dispath(resetCompleteTests());
+    dispath(updatelvlScores());
   }
   return (
     <div className={styles.main}>
