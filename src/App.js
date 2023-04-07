@@ -4,6 +4,7 @@ import Main from "./pages/Main";
 import Achievements from "./pages/Achievements";
 import Game from "./pages/Game";
 import Header from "./mainComponents/Header";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/achievements" element={<Achievements />} />
         <Route path="/game" element={<Game />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </div>
   );

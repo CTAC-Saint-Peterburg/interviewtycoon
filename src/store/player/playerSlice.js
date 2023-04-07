@@ -14,7 +14,10 @@ const playerSlice = createSlice({
       state.completeTests[0].tests[action.payload.test] = action.payload.value;
       localStorage.setItem("testsData", JSON.stringify(state.completeTests));
     },
+    resetCompleteTests: (state) => {
+      state.completeTests = JSON.parse(localStorage.getItem("testsData"));
+    },
   },
 });
-export const { updateCompleteTests } = playerSlice.actions;
+export const { updateCompleteTests, resetCompleteTests } = playerSlice.actions;
 export default playerSlice.reducer;

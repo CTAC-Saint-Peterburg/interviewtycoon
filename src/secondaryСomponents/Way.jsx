@@ -3,6 +3,7 @@ import styles from "./secondaryStyleComponents/Way.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   resetCurrentQuestion,
+  resetCurrectAnswers,
   setStageQuestions,
   setWayActive,
 } from "../store/gamestats/gamestatsSlice";
@@ -15,6 +16,7 @@ export const Way = () => {
   function handleClick(index) {
     dispath(resetCurrentQuestion());
     dispath(setStageQuestions({ lvl: 0, stage: 2 - index }));
+    dispath(resetCurrectAnswers());
     dispath(setWayActive(index));
   }
   return (

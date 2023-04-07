@@ -1,0 +1,17 @@
+.main {
+  position: relative;
+}
+.optionsWrapper {
+  display: flex;
+  justify-content: center;
+}
+.optionsWrapper > button {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #56686e;
+  background-color: #b7d1da;
+  font-weight: 700;
+}

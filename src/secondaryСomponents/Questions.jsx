@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   incrementCurrectAnswers,
   incrementCurrentQuestion,
+  resetCurrectAnswers,
 } from "../store/gamestats/gamestatsSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./secondaryStyleComponents/Questions.module.css";
@@ -46,6 +47,7 @@ export const Questions = ({ data }) => {
       dispath(incrementCurrentQuestion(1));
     } else {
       dispath(updateCompleteTests({ test: currentWay, value: correctAnswers }));
+      dispath(resetCurrectAnswers());
       go("/");
     }
   }

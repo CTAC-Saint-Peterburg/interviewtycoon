@@ -2,7 +2,7 @@ import settingsImg from "../assets/settings.svg";
 import leftArrowImg from "../assets/leftarrowImg.svg";
 import achievementImg from "../assets/achievement.svg";
 import styles from "./mainStyleComponents/header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 export default function Header({ backStatus }) {
   return (
     <div className={styles.main}>
@@ -20,9 +20,13 @@ export default function Header({ backStatus }) {
           </div>
         </Link>
       )}
-      <div className={styles.settingsImg}>
-        <img src={settingsImg} alt="settingsImage" />
-      </div>
+      {useLocation().pathname !== "/settings" ? (
+        <Link to="/settings">
+          <div className={styles.settingsImg}>
+            <img src={settingsImg} alt="settingsImage" />
+          </div>
+        </Link>
+      ) : null}
     </div>
   );
 }
