@@ -80,5 +80,87 @@ const questions = [
       ],
     ],
   },
+  {
+    name: "middle",
+    stage: [
+      [
+        {
+          question: "1111 - 1 ?",
+          variants: ["1110", "2", "3", "4"],
+          answer: "1110",
+        },
+        {
+          question: "1111 + 1 ?",
+          variants: ["1112", "7", "12", "44"],
+          answer: "1112",
+        },
+      ],
+      [
+        {
+          question: "8888 - 1 ?",
+          variants: ["8887", "2", "3", "4"],
+          answer: "8887",
+        },
+        {
+          question: "8888 + 1 ?",
+          variants: ["8889", "7", "12", "44"],
+          answer: "8889",
+        },
+      ],
+      [
+        {
+          question: "9999 - 1 ?",
+          variants: ["9998", "2", "3", "4"],
+          answer: "9998",
+        },
+        {
+          question: "1000 + 1 ?",
+          variants: ["1001", "7", "12", "44"],
+          answer: "1001",
+        },
+      ],
+    ],
+  },
+  {
+    name: "senior",
+    stage: [
+      [
+        {
+          question: "1 - 1 ?",
+          variants: ["0", "2", "3", "4"],
+          answer: "0",
+        },
+        {
+          question: "1 + 0 ?",
+          variants: ["1", "7", "12", "44"],
+          answer: "1",
+        },
+      ],
+      [
+        {
+          question: "1+1 ?",
+          variants: ["1", "2", "3", "4"],
+          answer: "2",
+        },
+        {
+          question: "2+0 ?",
+          variants: ["2", "7", "12", "44"],
+          answer: "2",
+        },
+      ],
+      [
+        {
+          question: "9999 - 1 ?",
+          variants: ["9998", "2", "3", "4"],
+          answer: "9998",
+        },
+        {
+          question: "0.5 + 1 ?",
+          variants: ["1.5", "7", "12", "44"],
+          answer: "1.5",
+        },
+      ],
+    ],
+  },
 ];
 export default questions;
