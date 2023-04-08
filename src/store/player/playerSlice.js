@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-const dataFromLocalStorge = JSON.parse(localStorage.getItem("testsData"));
+const localStorageSaves = JSON.parse(localStorage.getItem("testsData"));
 const playerSlice = createSlice({
   name: "player",
   initialState: {
     lvl: {
       name: "junior",
       scores:
-        dataFromLocalStorge[0].tests.reduce((a, b) => a + b) +
-        dataFromLocalStorge[1].tests.reduce((a, b) => a + b) +
-        dataFromLocalStorge[2].tests.reduce((a, b) => a + b),
+        localStorageSaves[0].tests.reduce((a, b) => a + b) +
+        localStorageSaves[1].tests.reduce((a, b) => a + b) +
+        localStorageSaves[2].tests.reduce((a, b) => a + b),
     },
-    completeTests: dataFromLocalStorge,
+    completeTests: localStorageSaves,
     achievments: [
       { name: "complete first test", status: false },
       { name: "finish first three tests", status: false },
