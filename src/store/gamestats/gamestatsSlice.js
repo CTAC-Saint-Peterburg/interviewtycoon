@@ -5,7 +5,7 @@ const gamestatsSlice = createSlice({
   initialState: {
     data: {
       questions: questionsData[0].stage[0],
-      stage: 0,
+      questionsPack: 0,
     },
     currectAnswers: 0,
     currentQuestion: 0,
