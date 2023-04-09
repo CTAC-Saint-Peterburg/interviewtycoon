@@ -4,6 +4,7 @@ import {
   resetCompleteTests,
   updatelvlScores,
 } from "../store/player/playerSlice";
+import { resetCurrentQuestion } from "../store/gamestats/gamestatsSlice";
 export default function Settings() {
   const dispath = useDispatch();
   function resetProgress() {
@@ -14,7 +15,7 @@ export default function Settings() {
         '[{"name":"junior","tests":[0,0,0]},{"name":"middle","tests":[0,0,0]},{"name":"senior","tests":[0,0,0]}]'
       );
     }
-    dispath(resetCompleteTests());
+    dispath(resetCurrentQuestion());
     dispath(updatelvlScores());
   }
   return (
