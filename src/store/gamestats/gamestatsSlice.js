@@ -14,6 +14,9 @@ const gamestatsSlice = createSlice({
   },
   reducers: {
     show: (state) => {},
+    setQuestionsPack: (state, action) => {
+      state.data.questionsPack = action.payload;
+    },
     setStageQuestions: (state, action) => {
       state.data.questions =
         questionsData[action.payload.lvl].stage[action.payload.stage];
@@ -44,5 +47,6 @@ export const {
   resetCurrectAnswers,
   resetCurrentQuestion,
   setWayActive,
+  setQuestionsPack,
 } = gamestatsSlice.actions;
 export default gamestatsSlice.reducer;

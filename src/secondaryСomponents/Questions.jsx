@@ -4,6 +4,7 @@ import {
   incrementCurrectAnswers,
   incrementCurrentQuestion,
   resetCurrectAnswers,
+  setQuestionsPack,
 } from "../store/gamestats/gamestatsSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./secondaryStyleComponents/Questions.module.css";
@@ -21,6 +22,7 @@ export const Questions = ({ data }) => {
   );
   const correctAnswers = useSelector((state) => state.gamestats.currectAnswers);
   const currentWay = useSelector((state) => state.gamestats.mainMenuWayActive);
+  const totalScores = useSelector((state) => state.player.lvl.scores);
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
     let copy = [...data[currentQuestion].variants];
@@ -52,6 +54,10 @@ export const Questions = ({ data }) => {
       dispath(updateCompleteTests({ test: currentWay, value: correctAnswers }));
       dispath(resetCurrectAnswers());
       dispath(updatelvlScores());
+      if (totalScores + correctAnswers >= 4) {
+        console.log(totalScores + correctAnswers);
+        dispath(setQuestionsPack(1));
+      }
       go("/");
     }
   }
