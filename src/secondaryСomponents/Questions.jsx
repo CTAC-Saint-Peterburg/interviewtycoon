@@ -63,9 +63,21 @@ export const Questions = ({ data }) => {
       );
       dispath(resetCurrectAnswers());
       dispath(updatelvlScores());
-      if (totalScores + correctAnswers >= 4) {
+      if (totalScores + correctAnswers < 14) {
         console.log(totalScores + correctAnswers);
+        dispath(setQuestionsPack(0));
+      } else if (
+        totalScores + correctAnswers >= 14 &&
+        totalScores + correctAnswers < 20
+      ) {
         dispath(setQuestionsPack(1));
+      } else if (
+        totalScores + correctAnswers >= 20 &&
+        totalScores + correctAnswers < 24
+      ) {
+        dispath(setQuestionsPack(2));
+      } else if (totalScores + correctAnswers >= 24) {
+        alert("you are winner!!!");
       }
       go("/");
     }
