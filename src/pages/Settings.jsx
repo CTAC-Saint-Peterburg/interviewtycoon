@@ -15,6 +15,7 @@ export default function Settings() {
         '[{"name":"junior","tests":[0,0,0]},{"name":"middle","tests":[0,0,0]},{"name":"senior","tests":[0,0,0]}]'
       );
     }
+    dispath(resetCompleteTests());
     dispath(resetCurrentQuestion());
     dispath(updatelvlScores());
   }
