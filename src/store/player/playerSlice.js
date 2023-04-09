@@ -18,7 +18,8 @@ const playerSlice = createSlice({
   },
   reducers: {
     updateCompleteTests: (state, action) => {
-      state.completeTests[0].tests[action.payload.test] = action.payload.value;
+      state.completeTests[action.payload.pack].tests[action.payload.test] =
+        action.payload.value;
       localStorage.setItem("testsData", JSON.stringify(state.completeTests));
     },
     updatelvlScores: (state) => {

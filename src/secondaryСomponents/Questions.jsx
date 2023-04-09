@@ -23,6 +23,9 @@ export const Questions = ({ data }) => {
   const correctAnswers = useSelector((state) => state.gamestats.currectAnswers);
   const currentWay = useSelector((state) => state.gamestats.mainMenuWayActive);
   const totalScores = useSelector((state) => state.player.lvl.scores);
+  const questionsPack = useSelector(
+    (state) => state.gamestats.data.questionsPack
+  );
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
     let copy = [...data[currentQuestion].variants];
@@ -51,7 +54,13 @@ export const Questions = ({ data }) => {
 
       dispath(incrementCurrentQuestion(1));
     } else {
-      dispath(updateCompleteTests({ test: currentWay, value: correctAnswers }));
+      dispath(
+        updateCompleteTests({
+          pack: questionsPack,
+          test: currentWay,
+          value: correctAnswers,
+        })
+      );
       dispath(resetCurrectAnswers());
       dispath(updatelvlScores());
       if (totalScores + correctAnswers >= 4) {
