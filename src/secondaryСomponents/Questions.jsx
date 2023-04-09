@@ -5,6 +5,7 @@ import {
   incrementCurrentQuestion,
   resetCurrectAnswers,
   setQuestionsPack,
+  setStageQuestions,
 } from "../store/gamestats/gamestatsSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./secondaryStyleComponents/Questions.module.css";
@@ -73,12 +74,14 @@ export const Questions = ({ data }) => {
         totalScores + correctAnswers < 20
       ) {
         dispath(resetCurrentQuestion());
+        dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
         dispath(setQuestionsPack(1));
       } else if (
         totalScores + correctAnswers >= 20 &&
         totalScores + correctAnswers < 24
       ) {
         dispath(resetCurrentQuestion());
+        dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
         dispath(setQuestionsPack(2));
       } else if (totalScores + correctAnswers >= 24) {
         dispath(resetCurrentQuestion());
