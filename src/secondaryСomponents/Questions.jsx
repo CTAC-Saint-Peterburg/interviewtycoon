@@ -12,6 +12,7 @@ import {
   updateCompleteTests,
   updatelvlScores,
 } from "../store/player/playerSlice";
+import { resetCurrentQuestion } from "../store/gamestats/gamestatsSlice";
 
 export const Questions = ({ data }) => {
   const go = useNavigate();
@@ -65,18 +66,22 @@ export const Questions = ({ data }) => {
       dispath(updatelvlScores());
       if (totalScores + correctAnswers < 14) {
         console.log(totalScores + correctAnswers);
+        dispath(resetCurrentQuestion());
         dispath(setQuestionsPack(0));
       } else if (
         totalScores + correctAnswers >= 14 &&
         totalScores + correctAnswers < 20
       ) {
+        dispath(resetCurrentQuestion());
         dispath(setQuestionsPack(1));
       } else if (
         totalScores + correctAnswers >= 20 &&
         totalScores + correctAnswers < 24
       ) {
+        dispath(resetCurrentQuestion());
         dispath(setQuestionsPack(2));
       } else if (totalScores + correctAnswers >= 24) {
+        dispath(resetCurrentQuestion());
         alert("you are winner!!!");
       }
       go("/");
