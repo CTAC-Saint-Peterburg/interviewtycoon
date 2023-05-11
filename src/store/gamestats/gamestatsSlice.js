@@ -28,11 +28,11 @@ const gamestatsSlice = createSlice({
     },
     player: {
       lvl: {
-        name: "junior",
         scores:
           localStorageSaves[0].tests.reduce((a, b) => a + b) +
           localStorageSaves[1].tests.reduce((a, b) => a + b) +
           localStorageSaves[2].tests.reduce((a, b) => a + b),
+        name: "junior",
       },
       completeTests: localStorageSaves,
       achievments: [
@@ -42,7 +42,6 @@ const gamestatsSlice = createSlice({
     },
     currectAnswers: 0,
     currentQuestion: 0,
-    currentStage: 0,
     mainMenuWayActive: 2,
   },
   reducers: {
