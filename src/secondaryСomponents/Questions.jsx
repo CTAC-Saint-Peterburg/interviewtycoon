@@ -3,17 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   incrementCurrectAnswers,
   incrementCurrentQuestion,
+  resetCurrentQuestion,
   resetCurrectAnswers,
   setQuestionsPack,
   setStageQuestions,
+  updateCompleteTests,
+  updatelvlScores,
+  setlvlName,
 } from "../store/gamestats/gamestatsSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./secondaryStyleComponents/Questions.module.css";
-import {
-  updateCompleteTests,
-  updatelvlScores,
-} from "../store/player/playerSlice";
-import { resetCurrentQuestion } from "../store/gamestats/gamestatsSlice";
 
 export const Questions = ({ data }) => {
   const go = useNavigate();
@@ -24,7 +23,7 @@ export const Questions = ({ data }) => {
   );
   const correctAnswers = useSelector((state) => state.gamestats.currectAnswers);
   const currentWay = useSelector((state) => state.gamestats.mainMenuWayActive);
-  const totalScores = useSelector((state) => state.player.lvl.scores);
+  const totalScores = useSelector((state) => state.gamestats.player.lvl.scores);
   const questionsPack = useSelector(
     (state) => state.gamestats.data.questionsPack
   );
@@ -69,6 +68,7 @@ export const Questions = ({ data }) => {
         console.log(totalScores + correctAnswers);
         dispath(resetCurrentQuestion());
         dispath(setQuestionsPack(0));
+        dispath(setlvlName("junior"));
       } else if (
         totalScores + correctAnswers >= 14 &&
         totalScores + correctAnswers < 20
@@ -76,6 +76,7 @@ export const Questions = ({ data }) => {
         dispath(resetCurrentQuestion());
         dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
         dispath(setQuestionsPack(1));
+        dispath(setlvlName("middle"));
       } else if (
         totalScores + correctAnswers >= 20 &&
         totalScores + correctAnswers < 24
@@ -83,6 +84,7 @@ export const Questions = ({ data }) => {
         dispath(resetCurrentQuestion());
         dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
         dispath(setQuestionsPack(2));
+        dispath(setlvlName("senior"));
       } else if (totalScores + correctAnswers >= 24) {
         dispath(resetCurrentQuestion());
         alert("you are winner!!!");

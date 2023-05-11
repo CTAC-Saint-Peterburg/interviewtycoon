@@ -1,10 +1,11 @@
 import { useDispatch } from "react-redux";
 import styles from "./pagesStyleComponents/Settings.module.css";
 import {
+  resetCurrentQuestion,
   resetCompleteTests,
   updatelvlScores,
-} from "../store/player/playerSlice";
-import { resetCurrentQuestion } from "../store/gamestats/gamestatsSlice";
+} from "../store/gamestats/gamestatsSlice";
+
 export default function Settings() {
   const dispath = useDispatch();
   function resetProgress() {

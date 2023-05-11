@@ -2,7 +2,7 @@ import castleImg from "../assets/castleimg.svg";
 import { useSelector } from "react-redux";
 import styles from "./secondaryStyleComponents/Goal.module.css";
 export const Goal = () => {
-  const rank = useSelector((state) => state.player.lvl.name);
+  const rank = useSelector((state) => state.gamestats.player.lvl.name);
   return (
     <div className={styles.main}>
       <div className={styles.goalWrapper}>

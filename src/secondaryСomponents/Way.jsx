@@ -15,7 +15,7 @@ export const Way = () => {
   );
   const [blocks, setBlocks] = useState(["#3", "#2", "#1"]);
   const loadSaves = useSelector(
-    (state) => state.player.completeTests[questionsPack].tests
+    (state) => state.gamestats.player.completeTests[questionsPack].tests
   );
 
   function handleClick(index) {
