@@ -6,6 +6,23 @@ const gamestatsSlice = createSlice({
   name: "gamestats",
   initialState: {
     data: {
+      default: {
+        allData: questionsData,
+        allPacksLength: [
+          questionsData[0].stage[0].length +
+            questionsData[0].stage[1].length +
+            questionsData[0].stage[2].length,
+
+          questionsData[1].stage[0].length +
+            questionsData[1].stage[1].length +
+            questionsData[1].stage[2].length,
+
+          questionsData[2].stage[0].length +
+            questionsData[2].stage[1].length +
+            questionsData[2].stage[2].length,
+        ],
+      },
+
       questions: questionsData[0].stage[0],
       questionsPack: 0,
     },

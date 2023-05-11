@@ -1,9 +1,11 @@
 # Init development 20.03.2023
 
-##NEED TO DO
+## NEED TO DO
 
-### fix the accrual of double points when you click on the correct answer again
+### Баг с удваением очков при нажатии кнопки назад и возвращении
 
-### fix bug with currect Answer index state
+### Баг с обновлением очков при обновлении страницы
 
-### add correct lvl name, qustion count
+### Нужно упростить наименования
+
+### Упростить хранилище redux

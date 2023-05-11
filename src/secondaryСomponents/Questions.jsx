@@ -27,6 +27,10 @@ export const Questions = ({ data }) => {
   const questionsPack = useSelector(
     (state) => state.gamestats.data.questionsPack
   );
+  const allQuetionsPackLength = useSelector(
+    (state) => state.gamestats.data.default.allPacksLength
+  );
+
   const [nextButton, setNextButton] = useState(false);
   useEffect(() => {
     let copy = [...data[currentQuestion].variants];
@@ -64,28 +68,42 @@ export const Questions = ({ data }) => {
       );
       dispath(resetCurrectAnswers());
       dispath(updatelvlScores());
-      if (totalScores + correctAnswers < 14) {
+
+      if (totalScores + correctAnswers < allQuetionsPackLength[0]) {
         console.log(totalScores + correctAnswers);
-        dispath(resetCurrentQuestion());
         dispath(setQuestionsPack(0));
+        dispath(resetCurrentQuestion());
+
         dispath(setlvlName("junior"));
       } else if (
-        totalScores + correctAnswers >= 14 &&
-        totalScores + correctAnswers < 20
+        totalScores + correctAnswers >= allQuetionsPackLength[0] &&
+        totalScores + correctAnswers <
+          allQuetionsPackLength[0] + allQuetionsPackLength[1]
       ) {
         dispath(resetCurrentQuestion());
-        dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
         dispath(setQuestionsPack(1));
+        dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
+
         dispath(setlvlName("middle"));
       } else if (
-        totalScores + correctAnswers >= 20 &&
-        totalScores + correctAnswers < 24
+        totalScores + correctAnswers >=
+          allQuetionsPackLength[0] + allQuetionsPackLength[1] &&
+        totalScores + correctAnswers <
+          allQuetionsPackLength[0] +
+            allQuetionsPackLength[1] +
+            allQuetionsPackLength[2]
       ) {
         dispath(resetCurrentQuestion());
-        dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
         dispath(setQuestionsPack(2));
+        dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
+
         dispath(setlvlName("senior"));
-      } else if (totalScores + correctAnswers >= 24) {
+      } else if (
+        totalScores + correctAnswers >=
+        allQuetionsPackLength[0] +
+          allQuetionsPackLength[1] +
+          allQuetionsPackLength[2]
+      ) {
         dispath(resetCurrentQuestion());
         alert("you are winner!!!");
       }
