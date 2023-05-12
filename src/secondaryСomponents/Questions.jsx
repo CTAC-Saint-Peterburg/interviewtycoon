@@ -53,11 +53,11 @@ export const Questions = ({ data }) => {
 
   function next() {
     console.log(correctAnswers);
-    if (data.length > currentQuestion + 1) {
-      setNextButton(false);
-      setShowAnswer(false);
-      setChoice({ myAnswer: null, styleIndex: null });
+    setNextButton(false);
+    setShowAnswer(false);
+    setChoice({ myAnswer: null, styleIndex: null });
 
+    if (data.length > currentQuestion + 1) {
       dispath(incrementCurrentQuestion(1));
     } else {
       console.log(correctAnswers);
@@ -69,7 +69,6 @@ export const Questions = ({ data }) => {
         })
       );
       dispath(updatelvlScores());
-      dispath(resetCurrectAnswers());
 
       if (totalScores + correctAnswers < allQuetionsPackLength[0]) {
         console.log(totalScores + correctAnswers);
@@ -105,6 +104,7 @@ export const Questions = ({ data }) => {
       ) {
         alert("you are winner!!!");
       }
+      dispath(resetCurrectAnswers());
       dispath(resetCurrentQuestion());
       go("/");
     }
