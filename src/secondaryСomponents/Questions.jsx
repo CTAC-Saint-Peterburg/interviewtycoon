@@ -52,6 +52,7 @@ export const Questions = ({ data }) => {
   }
 
   function next() {
+    console.log(correctAnswers);
     if (data.length > currentQuestion + 1) {
       setNextButton(false);
       setShowAnswer(false);
@@ -59,6 +60,7 @@ export const Questions = ({ data }) => {
 
       dispath(incrementCurrentQuestion(1));
     } else {
+      console.log(correctAnswers);
       dispath(
         updateCompleteTests({
           pack: questionsPack,
@@ -66,13 +68,12 @@ export const Questions = ({ data }) => {
           value: correctAnswers,
         })
       );
-      dispath(resetCurrectAnswers());
       dispath(updatelvlScores());
+      dispath(resetCurrectAnswers());
 
       if (totalScores + correctAnswers < allQuetionsPackLength[0]) {
         console.log(totalScores + correctAnswers);
         dispath(setQuestionsPack(0));
-        dispath(resetCurrentQuestion());
 
         dispath(setlvlName("junior"));
       } else if (
@@ -80,7 +81,6 @@ export const Questions = ({ data }) => {
         totalScores + correctAnswers <
           allQuetionsPackLength[0] + allQuetionsPackLength[1]
       ) {
-        dispath(resetCurrentQuestion());
         dispath(setQuestionsPack(1));
         dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
 
@@ -93,7 +93,6 @@ export const Questions = ({ data }) => {
             allQuetionsPackLength[1] +
             allQuetionsPackLength[2]
       ) {
-        dispath(resetCurrentQuestion());
         dispath(setQuestionsPack(2));
         dispath(setStageQuestions({ lvl: 1, stage: 2 - 0 }));
 
@@ -104,9 +103,9 @@ export const Questions = ({ data }) => {
           allQuetionsPackLength[1] +
           allQuetionsPackLength[2]
       ) {
-        dispath(resetCurrentQuestion());
         alert("you are winner!!!");
       }
+      dispath(resetCurrentQuestion());
       go("/");
     }
   }
